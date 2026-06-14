@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180733097-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180733097-1');
+</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FBSDiff++: Improved Frequency Band Substitution of Diffusion Features for Efficient and Highly Controllable Text-Driven Image-to-Image Translation</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  </head>
+
+  <style>
+  .section-title {
+    font-family: "Lato"
+  }
+  .authors {
+    font-family: "Lato";
+  }
+  h1, h2, h3, h4, h5, h6, p {
+    font-family: "Lato";
+  }
+  .pub-highlight {
+    color: #e83015;
+    font-family: monaco;
+  }
+  </style>
+  
+
+<!-- cover -->
+  <section>
+    <div class="jumbotron text-center mt-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 style="font-family: Lato;">FBSDiff++: Improved Frequency Band Substitution of Diffusion Features for Efficient and Highly Controllable Text-Driven Image-to-Image Translation</h2->
+            <h4 style="color:#5a6268;">IJCV 2026</h4>
+            <!--<div class="pub-highlight">Ranks 1st on Sintel Optical Flow benchmark on Mar. 17th, 2022 </div>-->
+            <hr>
+            <h6> <a href="https://xianggao1102.github.io/FBSDiff_webpage/" target="_blank">Xiang Gao</a>, &nbsp;&nbsp;&nbsp;
+                 Yunpeng Jia
+            	  <p>
+                    School of Digital Media and Design Arts, &nbsp;&nbsp; Beijing University of Posts and Telecommunications <br>
+                    {gaoxiang1102, xibei156}@bupt.edu.cn   
+                </p>
+            <div class="row justify-content-center">
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/pdf/2601.19115"  target="_blank">
+                    <i class="fa fa-file"></i>Paper</a> </p>
+              </div>
+
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/XiangGao1102/FBSDiff-plusplus" role="button"  target="_blank">
+                    <i class="fa fa-github-alt"></i>Code</a> </p>
+              </div>
+              <!-- <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://zjueducn-my.sharepoint.com/:f:/g/personal/pengsida_zju_edu_cn/Eo9zn4x_xcZKmYHZNjzel7gBdWf_d4m-pISHhPWB-GZBYw?e=Hf4mz7" role="button">
+                    <i class="fa fa-database"></i> Data</a> </p>
+              </div> -->
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Abstract</h3>
+            <hr style="margin-top:0px">
+          <p class="text-justify">
+            With large-scale text-to-image (T2I) diffusion models achieving significant advancements in opendomain image creation, increasing attention has been focused on their natural extension to the realm
+of text-driven image-to-image (I2I) translation, where a source image acts as visual guidance to
+the generated image in addition to the textual guidance provided by the text prompt. We propose
+FBSDiff, a novel framework adapting off-the-shelf T2I diffusion model into the I2I paradigm from a
+fresh frequency-domain perspective. Through dynamic frequency band substitution of diffusion features, FBSDiff realizes versatile and highly controllable text-driven I2I in a plug-and-play manner
+(without need for model training, fine-tuning, or online optimization), allowing appearance-guided,
+layout-guided, and contour-guided I2I translation by progressively substituting low-frequency band,
+mid-frequency band, and high-frequency band of latent diffusion features, respectively. In addition,
+FBSDiff flexibly enables continuous control over I2I correlation intensity simply by tuning the bandwidth of the substituted frequency band. To further promote image translation efficiency, flexibility,
+and functionality, we propose FBSDiff++ which improves upon FBSDiff mainly in three aspects: (1)
+accelerate inference speed by a large margin (8.9× speedup in inference) with refined model architecture; (2) improve the Frequency Band Substitution module to allow for input source images of
+arbitrary resolution and aspect ratio; (3) extend model functionality to enable localized image manipulation and style-specific content creation with only subtle adjustments to the core method. Extensive
+qualitative and quantitative experiments verify superiority of FBSDiff++ in I2I translation visual
+quality, efficiency, versatility, and controllability compared to related advanced approaches.
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+ 
+  
+  
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Method Overview</h3>
+            <hr style="margin-top:0px">
+                <img class="img-fluid" src="img/method.jpg" alt="method" width="100%">
+                <p class="text-justify">
+                Our previous work proposes FBSDiff, a plug-and-play method adapting pretrained T2I diffusion model to the realm of text-driven I2I translation from the perspective of dynamic frequency band substitution. FBSDiff comprises an inversion trajectory, a reconstruction trajectory, and a sampling trajectory. An FBSDiff module is designed and inserted in between the reconstruction trajectory and sampling trajectory, transplanting feature frequency band to guarantee I2I consistency. FBSDiff enables versatile I2I applications and continuous intensity control of I2I consistency by tuning the type and bandwidth of the transplanted frequency band, respectively. 
+
+In contrary, FBSDiff++ improves upon FBSDiff in four aspects: (1) FBSDiff++ dispenses with the reconstruction trajectory by extracting guidance features from the inversion trajectory, and thus accelerates inference speed noticeably; (2) FBSDiff++ swaps the 2D-DCT-based FBS module for the AdaFBS module, which achieves the same goal of dynamic frequency band substitution via two successive 1D-DCT filtering steps along the feature height and width axes, allowing for input images of arbitrary aspect ratio rather than only the square images; (3) FBSDiff++ converts the absolute DCT filtering thresholds to the percentile-based relative ones, enabling the model to be adaptive to input images of arbitrary resolution; (4) FBSDiff++ extends model functionality to enable localized image manipulation and style-specific content creation for input images of arbitrary size.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+  
+  
+   <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Contributions</h3>
+            <hr style="margin-top:0px">
+            <p class="text-justify">
+              FBSDiff++ expands upon <a href="https://arxiv.org/pdf/2408.00998">FBSDiff</a> in four aspects: <br><br>
+
+			(1) FBSDiff++ dispenses with the reconstruction trajectory by extracting guidance features from the inversion trajectory. Such streamlined model architecture bypasses the need for sufficiently long inversion trajectory to guarantee source image reconstruction accuracy, accelerating inference speed significantly; <br><br>
+			(2) FBSDiff++ replaces 2D-DCT based FBS module with AdaFBS module, which realizes dynamic frequency band substitution via two successive 1D-DCT filtering steps along the two feature spatial dimensions, allowing for input images of arbitrary aspect ratio rather than only the square images; <br><br>
+			(3) FBSDiff++ converts the absolute DCT filtering thresholds to the percentile-based relative ones, enabling the model to be adaptive to input images of arbitrary resolution; <br><br>
+      (4) FBSDiff++ extends model functionality to enable localized image manipulation and style-specific content creation for input images of arbitrary size.
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+  
+  
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Results</h3>
+            <hr style="margin-top:0px">
+            <h4>Qualitative Results</h4>
+            <img class="img-fluid" src="img/results.jpg" alt="example qualitative results" width="100%">
+            <p class="text-justify">Example qualitative results of FBSDiff++ with different types of frequency band substitution. For low-frequency band substitution (low-FBS), the generated image is correlated with the source image in terms of image appearance (including style and structure), enabling I2I application of derivative image generation; for high-frequency band substitution (high-FBS), the generated image is consistent with the source image in image contour, enabling I2I application of text-driven image style translation; as for mid-frequency band substitution (mid-FBS), the generated image is similar to the source image only in image layout, enabling I2I application of layout-guided image translation.</p>
+                <br><br>
+            <h4>I2I Results with Arbitrary Aspect Ratio</h4>
+            <img class="img-fluid" src="img/arbitrary_size.jpg" alt="I2I results with arbitrary aspect ratio" width="100%">
+            <p class="text-justify">Taking the derivative image generation application in the mode of low-FBS for example, FBSDiff++ enables highquality I2I for input source images of arbitrary resolution and aspect ratio. Results maintain source image’s appearance
+accurately while comply with the text faithfully. The image resolution in the yellow pannel, gray pannel, green pannel, pink
+pannel, blue pannel is 1024×512, 512×768, 512×1024, 768×768, 512×1536, respectively. </p>
+            <br><br>
+                
+            <h4>Comparison Between FBSDiff and FBSDiff++ for Arbitrary Aspect Ratio and Resolution</h4>
+            <img class="img-fluid" src="img/FBSDiff_vs_FBSDiff++.jpg" alt="Comparison Between FBSDiff and FBSDiff++ for Arbitrary Aspect Ratio and Resolution" width="100%">
+            <br><br>
+            <p class="text-justify">Visual comparison between FBSDiff and FBSDiff++. FBSDiff generates unnatural I2I results for non-square source
+image due to non-uniform (unequal-proportion) DCT filtering over the two spatial dimensions, and generates visually less
+correlated I2I results for large-size source image since the DCT filtering of the FBS module is not adaptive to image size.
+These two issues have been well solved by FBSDiff++ with the improved AdaFBS module. </p>
+            <br><br>
+            <h4>Comparison Between FBSDiff and FBSDiff++ in inversion steps</h4>
+            <img class="img-fluid" src="img/FBSDiff_vs_FBSDiff++_in_inversion_steps.jpg" alt="Comparison Between FBSDiff and FBSDiff++ in inversion steps" width="100%">
+            <br><br>
+            <p class="text-justify">Visual comparison between FBSDiff and FBSDiff++ in different inversion steps. The generation quality of FBSDiff
+is highly dependent on the reconstruction accuracy of DDIM inversion, which leads to unsatisfactory I2I results with fewer
+inversion steps. FBSDiff++ bypasses source image reconstruction and enables to produce high-quality results with only 50 inversion steps, improving inference speed dramatically.  </p>
+            <br><br>
+            <h4>Diverse Sampling Results</h4>
+            <img class="img-fluid" src="img/diverse_results.jpg" alt="diverse sampling results" width="100%">
+            <br><br>
+            <p class="text-justify">Our method features sampling diversity. FBSDiff++ generates random and diverse I2I results at each inference time. </p>
+            <br><br>
+            <h4>I2I Appearance Correlation Control</h4>
+            <img class="img-fluid" src="img/low-FBS_consistency_control.jpg" alt="I2I appearance correlation control" width="100%">
+            <br><br>
+            <p class="text-justify">I2I appearance correlation control of FBSDiff++ achieved by tuning the low-FBS percentile threshold. The
+I2I appearance consistency increases with the growing of the threshold. Smaller threshold leads to more variation of the translated image compared with the source image. </p>
+            <br><br>
+            <h4>I2I Contour Correlation Control</h4>
+            <img class="img-fluid" src="img/high-FBS_consistency_control.jpg" alt="I2I contour correlation control" width="100%">
+            <br><br>
+            <p class="text-justify">I2I contour correlation control of FBSDiff++ achieved by tuning the high-FBS percentile threshold. The I2I
+contour consistency increases as the threshold declines. Larger threshold leads to more contour deviation of the translated image compared with the source image. </p>
+            <br><br>
+            <h4>Additional Functionality of Localized Image Manipulation</h4>
+            <br>
+            <img class="img-fluid" src="img/localized_image_manipulation.jpg" alt="additional functionality of localized image manipulation" width="100%">
+            <br><br>
+            <p class="text-justify">Demonstration of the extended functionality of FBSDiff++ for localized image manipulation. FBSDiff++ enables
+to locally manipulate the source image only in a specific region with a text prompt, where the manipulated area is indicated
+by a binary image mask. Content of the translated image outside the selected area is strictly maintained as the same
+as the source image </p>
+            <br><br>
+            <h4>Additional Functionality of Style-Specific Content Creation</h4>
+            <br>
+            <img class="img-fluid" src="img/style_specific_content_creation.jpg" alt="additional functionality of style-specific content creation" width="100%">
+            <br><br>
+            <p class="text-justify">(left) Demonstration of the extended functionality of
+FBSDiff++ for style-specific content creation. The translated image inherits only style distribution of the source
+image without structural correlation. (right) FBSDiff++ samples diverse I2I results for the
+extended functionality of style-specific content creation.
+For a given text prompt, all results correlate with the source image only in terms of style, while the image structure remains disentangled and randomly varied. </p>
+            <br><br>
+            <h4>Ablation Study</h4>
+            <br>
+            <img class="img-fluid" src="img/ablation_study.jpg" alt="ablation study" width="100%">
+            <br><br>
+            <p class="text-justify">(top) Ablation study of FBSDiff++ w.r.t. the AdaFBS module. Taking the low-FBS mode for example, results w/
+AdaFBS exhibit I2I appearance consistency, while results w/o AdaFBS have no visual correlation with the source image. (bottom) Ablation study of the Spatial Transformation Pool (STP) for the extended functionality of style-specific content
+creation. Results w/o STP correlate with the source image both in image style and image structure, while results w/ STP
+disentangle image structure and inherit only style distribution of the source image. </p>
+            <br><br>
+            <h4>Quantitative Results</h4>
+            <br>
+            <img class="img-fluid" src="img/quantitative_results.jpg" alt="quantitative results" width="100%">
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+<hr class="dashed-line">
+
+<!--BibTex citation -->
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+@inproceedings{gao2024fbsdiff,
+  title={FBSDiff: Plug-and-Play Frequency Band Substitution of Diffusion Features for Highly Controllable Text-Driven Image Translation},
+  author={Gao, Xiang and Liu, Jiaying},
+  booktitle={Proceedings of the ACM International Conference on Multimedia},
+  pages={4101--4109},
+  year={2024}
+}
+      </code></pre>
+    </div>
+</section> -->
+<!--End BibTex citation -->
+  
